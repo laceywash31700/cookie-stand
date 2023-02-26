@@ -60,15 +60,16 @@ dubai.totalCookiesGen();
 console.log(dubai);
 
 const paris = new City('Paris',20,38,2.3);
-paris.prototype.genRandCustAndCookies();
-paris.prototype.totalCookiesGen();
+paris.genRandCustAndCookies();
+paris.totalCookiesGen();
 console.log(paris);
 
 const chicago = new City('Chicago',2,16,4.6);
-chicago.prototype.genRandCustAndCookies();
+chicago.genRandCustAndCookies();
 chicago.totalCookiesGen();
 console.log(chicago);
 
+console.log(allTheCities);
 //   render: function () {
 //     const sectionElem5 = document.getElementById('chicago-location');
 //     const h2Elem = document.createElement('h2');
