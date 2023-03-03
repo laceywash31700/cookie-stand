@@ -1,0 +1,31 @@
+body{
+    background: salmon;
+}
+.header-link{
+    display: inline;
+
+}
+a :nth-last-child(2){
+    width: 100px;
+    align-items: center;
+}
+#family{
+    margin: auto;
+    display: inline;
+}
+#recipe{
+    display: flex;
+    justify-content: center;
+}
+#salmon-for-the-cookie{
+    width: 250px;
+    height: 150px;
+
+}
+#sugar-cookies{
+    width: 150px;
+    height: 150px;
+}
+#salmon-cookie{
+    width: 150px;
+}
