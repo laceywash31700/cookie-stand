@@ -1,7 +1,8 @@
 const hours = ['Hours & Location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Grand Total'];
 const allTheCities = [];
 const arrayOfHourlyTotals = [];
-const sectionElem = document.getElementById('holds table');
+const addStoreEvent = document.getElementById('add-store-event');
+const sectionElem = document.getElementById('holds-table');
 const tableElem = document.createElement('table');
 sectionElem.appendChild(tableElem);
 let hourlyTotal = 'Total Cookies Per Hr';
@@ -72,6 +73,7 @@ function renderTableBody() {
   }
 }
 
+
 function renderTableFooter(){
   const tablefooterElem = document.createElement('tfoot');
   tableElem.appendChild(tablefooterElem);
@@ -97,6 +99,41 @@ function renderTableFooter(){
 }
 
 
+function handleSubmit(event){
+  event.preventDefault();
+  console.log('I Got What You Putting Down!');
+  const oldTableBody = document.querySelector('tbody');
+  const oldTablefooter = document.querySelector('tfoot');
+
+  let city = event.target.city.value;
+  let maxCust = +event.target.maxCust.value;
+  let minCust = +event.target.minCust.value;
+  let avgCookiesSold = +event.target.avgCookiesSold.value;
+
+  function removeTable(table){
+    while(table.firstChild){
+      table.removeChild(table.firstChild);
+    }
+  }
+
+  const newStore = new City(city,maxCust,minCust,avgCookiesSold);
+
+
+
+  newStore.genRandCustAndCookies();
+  newStore.totalCookiesGen();
+
+
+  removeTable(oldTablefooter);
+  removeTable(oldTableBody);
+
+  renderTableBody();
+  renderTableFooter();
+
+  console.log(newStore);
+  addStoreEvent.reset();
+}
+
 const seattle = new City('Seattle', 23, 65, 6.3);
 const tokyo = new City('Tokyo', 3, 24, 1.2);
 const dubai = new City('Dubai', 11, 38, 3.7);
@@ -119,9 +156,11 @@ renderTableHeader();
 renderTableBody();
 renderTableFooter();
 
+
 console.log(seattle);
 console.log(tokyo);
 console.log(dubai);
 console.log(paris);
 console.log(chicago);
 
+addStoreEvent.addEventListener('submit', handleSubmit);

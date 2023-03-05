@@ -16,8 +16,27 @@
             <a href="/index.html">Home</a>
         </nav>
         </header>
-        <section id="holds table">
+        <section id="holds-table">
         </section>
+        <form id="add-store-event">
+        <fieldset>
+            <legend>Add Store Location</legend>
+            
+            <label for="location">New Location</label>
+            <input type="text" name="city" id="location">
+
+            <label for="max-cust">Maximum Number of Customers Per/Hr:</label>
+            <input type="number" name="maxCust" id="max-cust">
+
+            <label for="min-cust">Minimum Number of Customers Per/Hr:</label>
+            <input type="number" name="minCust" id="min-cust">
+
+            <label for="avg-cookies-sold">Average # Cookies Sold Per Customer:</label>
+            <input type="number" name="avgCookiesSold" id="avg-cookies-sold">
+
+            <button type="submit">Submit</button>
+        </fieldset>
+    </form>
     </main>
     <footer>
     <script src="./app.js"></script>
